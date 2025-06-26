@@ -1,0 +1,1 @@
+const botaoMostraPalavra = document.querySelector()
