@@ -4,9 +4,9 @@ botaoMostraPalavras.addEventListener('click', mostraPalavraChave);
 
 function mostraPalavraChave() {
     //alert("Fui clicado!");
-    const texto = Document.querySelector('#entrada-de-texto').value;
-    const campoResultado = Document.querySelector('resultado-palavrachave')
-    const palavras = texto.split('')
+    const texto = document.querySelector('#entrada-de-texto').value;
+    const campoResultado = document.querySelector('#resultado-palavrachave');
+    const palavras = texto.split(" ")
 
-    campoResultado.textContent = palavras.join(", ")
+    campoResultado.textContent = palavras.join(", ");
 }
