@@ -1,4 +1,6 @@
-const botaoMostraPalavras = document.querySelector('#botao-palavrachave');
+
+
+functioconst botaoMostraPalavras = document.querySelector('#botao-palavrachave');
 
 botaoMostraPalavras.addEventListener('click', mostraPalavraChave);
 
@@ -6,24 +8,26 @@ function mostraPalavraChave() {
     //alert("Fui clicado!");
     const texto = document.querySelector('#entrada-de-texto').value;
     const campoResultado = document.querySelector('#resultado-palavrachave');
-    const palavras = processaTesto(testo)
+    const palavras = processaTexto(texto);
 
     campoResultado.textContent = palavras.join(", ");
-}
+}n processaTexto(texto) {
+    //let palavras = texto.split(/\s+/);  "retirar espaços"
+    //let palavras = texto.split(/[^a-zA-Z]+/); "letras minusculas e maiusculas"
+    let palavras = texto.split("/\P{L}+/u/");  /* \P negação;  {L} conjunto de letras; + uma ou mais ocorrências; u Unicode*/
 
-function processaTesto(testo) {
-    //let palavras = testo.split(/\s+/);  "retirar espaços"
-    //let palavras = testo.split(/[a-zA-Z]+/); "letras minusculas e maiusculas"
-    let palavras = testo.split("/\P{L}+/u/");  /* \P negação; {L} conjunto de letras; + uma ou mais ocorrencias; u Unidade 
+    let frequencias = [];
 
-    let frequencias = []
-
-    for (let i in palavras) {
-    frequencia[i] = 0;
-    
+    for ( let i in palavras) {
+        frequencias[i] = 0;
+        for ( let j in palavras) {
+            if(palavras[i] == palavras[j]) {
+                frequencias[i]++;
+            }
+        }
     }
 
-    console.log(frequencia);
+    console.log(frequencias);
 
     return palavras;
 }
